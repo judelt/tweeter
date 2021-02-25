@@ -1,0 +1,33 @@
+nav {
+
+  height: 120px;
+  width:auto;
+  background-color: #4056A1;
+  color: #FFFFFF;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
+  width: 100%; /* Full width */
+  z-index: 9999;
+}
+
+.logo {
+  font-family: 'Bungee', sans-serif;
+  font-size: 1.5em;
+  margin-left: 1.5em;
+}
+
+nav p {
+  font-size: 20px;
+  margin-right: 1.5em;
+  text-align: center;
+}
+
+.arrow {
+  color: #F13B19;
+}
