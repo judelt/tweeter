@@ -4,22 +4,21 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-$(document).ready(function () {
-  const renderTweets = function (data) {
-    for(const tweet of data) {
+$(document).ready(function() {
+  const renderTweets = function(data) {
+    for (const tweet of data) {
       const $tweet = createTweetElement(tweet);
-      $("#tweets-container").prepend($tweet); 
+      $("#tweets-container").prepend($tweet);
     }
   };
 
 
-  $("form").on("submit", function (event) {
+  $("form").on("submit", function(event) {
     event.preventDefault();
 
-    const form = $( this );
+    const form = $(this);
     const url = form.attr('action');
     const serializedData = form.serialize();
-    //const text = $( form ).find('#tweet-text').val()
 
     $(this).validate({
       rules: {
@@ -31,61 +30,38 @@ $(document).ready(function () {
       },
       messages: {
         text: {
-          required: `<i class="fas fa-exclamation-triangle"></i> Minimum lenght of 1 character`,
-          maxlength: `<i class="fas fa-exclamation-triangle"></i> Maximum message length exceeded`
+          required: `<i class="fas fa-exclamation-triangle"></i> Minimum lenght of 1 character <i class="fas fa-exclamation-triangle"></i>`,
+          minlength: `<i class="fas fa-exclamation-triangle"></i> Minimum lenght of 1 character <i class="fas fa-exclamation-triangle"></i>`,
+          maxlength: `<i class="fas fa-exclamation-triangle"></i> Maximum message length exceeded <i class="fas fa-exclamation-triangle"></i>`
         }
-      }
-      //add that to place error message on top
-      // errorElement : 'span',
-      // errorLabelContainer: '#error'
-      
+      },
     });
-
-    // if(!text) {
-    //   let errorMessage = `
-    //   <label id="validation">
-    //     <i class="fas fa-exclamation-triangle"></i> Invalid input
-    //   </label>`;
-      
-    //   //$("new-tweet").append(errorMessage); 
-    //   return $("error").data(errorMessage);
-    // }
-    // if(text.length > 140) {
-    //   let errorMessage = `
-    //   <label id="validation">
-    //     <i class="fas fa-exclamation-triangle"></i> Maximum message length exceeded
-    //   </label>`;
-    //   //$("new-tweet").append(errorMessage);
-      
-    //   //document.getElementById('error').innerHTML = `<i class="fas fa-exclamation-triangle"></i> `;
-    //   return $("error").data(errorMessage);
-    // }
 
     $.ajax({
       method: "POST",
       url: url,
       data: serializedData // serializes the form's elements.
-    }).then(function () {
+    }).then(function() {
       loadTweets();
       $(".counter").val(140);
 
-    }).catch (function (err) {
+    }).catch(function(err) {
       console.log(err);
-    })
+    });
 
     document.querySelector("form").reset();
   
   });
 
-  const loadTweets = function (){
+  const loadTweets = function() {
     return $.ajax({
       method: "GET",
       url: '/tweets',
-    }).then(function (response) {
-    renderTweets(response);
-    }).catch (function (err) {
+    }).then(function(response) {
+      renderTweets(response);
+    }).catch(function(err) {
       console.log(err);
-    })
+    });
   };
 
   loadTweets();
@@ -96,9 +72,9 @@ const escape =  function(str) {
   let div = document.createElement('div');
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
-}
+};
 
-const createTweetElement = function (data) {
+const createTweetElement = function(data) {
   const a = moment.unix(data.created_at / 1000);
   const b = moment();
   const days = b.diff(a, "days"); // =1
