@@ -40,7 +40,6 @@ button {
   color: red;
 }
 
-
 .error {
 	border: 1px solid;
 	margin: 15px 15px;
@@ -51,7 +50,5 @@ button {
   background-color: #FFCCBA;
 }
 
-#error {
-  border: 20px;
-}
+
 	
