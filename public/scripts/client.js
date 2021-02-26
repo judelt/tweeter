@@ -84,7 +84,7 @@ const createTweetElement = function(data) {
     <article class="tweet">
       
       <header>
-        <div><img src="${escape(data.user.avatars)}"><span>${data.user.name}</span></div>
+        <div class="user"><img src="${escape(data.user.avatars)}"><span>${data.user.name}</span></div>
         <p><strong class="account">${escape(data.user.handle)}</strong></p>
       </header>
 

@@ -3,6 +3,8 @@
   <head>
     <!-- Meta Information -->
     <title>Tweeter - Home Page</title>
+    <meta charset="UTF-8">
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
 
     <!-- External CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" type="text/css" />
@@ -42,11 +44,11 @@
 
     <header>
       <div class='avatar-name'>
-          <img src="/images/profile-hex.png"> 
+          <img class='avatar' src="/images/profile-hex.png"> 
       </div>
       <br>
       <div class='avatar-name'>
-          <h2 class= 'no-border'><strong>Judit</strong> Mendez</h2>
+          <h2 class= 'no-border'><strong>Judit </strong> Mendez</h2>
       </div>
   </header>
 
@@ -56,8 +58,7 @@
       <section class="new-tweet">
         
         <form action="/tweets" method="POST">
-          <label for="tweet-text"><strong>What are you humming about?</strong></label>
-          <textarea name="text" id="tweet-text"></textarea>
+          <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
           <div class="submit-tweet">
             <button type="submit">Tweet</button>
             <output name="counter" class="counter" for="tweet-text">140</output>

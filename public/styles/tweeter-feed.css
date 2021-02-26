@@ -26,6 +26,11 @@
   filter: blur(0px);
 }
 
+.tweet .user {
+  display: flex;
+  align-items: center;
+}
+
 .tweet:hover .account {
   opacity: 1;
 }
@@ -33,13 +38,13 @@
 .tweet header {
   display: flex;
   flex-direction: row;
-  align-items: center;
   justify-content: space-between;
   margin: 0;
 }
 
 .tweet img  {
   padding-right: 15px;
+  height: 5vh;
 }
 
 .tweet footer {

@@ -14,13 +14,22 @@
   border-color: #f4f1ec;
   border-bottom: 4px solid #545149;
   background-color: #f4f1ec;
+  font-weight: bold;
+  color: #545149;
+
   }
+
+  textarea::placeholder {
+    color: #545149;
+  }
+
 .submit-tweet {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   padding-top: 15px;
+  
 }
 button {
   background-color:#4056A1;

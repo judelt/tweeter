@@ -29,7 +29,11 @@ h2 {
   font-weight: normal;
 }
 
-body { 
-  padding-top: 120px;
+@media only screen and (min-width: 1024px) {
+.container {
+  margin-top: 10vh;
+  margin-right: 5vh;
+  float: right;
+  width: 60%;
 }
-
+}
