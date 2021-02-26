@@ -43,8 +43,6 @@
   align-items: center;
 }
 
-
-
 .tweet header {
   display: flex;
   flex-direction: row;
@@ -69,4 +67,3 @@ padding: 10px;
   align-items: baseline;
   font-size: small;
 }
-

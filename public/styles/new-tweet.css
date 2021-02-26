@@ -6,9 +6,9 @@
   border: 10px;
   width: 90%;
  
- }
+}
 
- #error {
+#error {
 	margin-top: 2px;
   margin-bottom: 1em;
   border: 1px solid;
@@ -30,11 +30,11 @@ textarea {
   font-weight: bold;
   color: #545149;
   z-index: 1;
-  }
+}
 
 textarea::placeholder {
   color: #545149;
-  }
+}
 
 .submit-tweet {
   display: flex;

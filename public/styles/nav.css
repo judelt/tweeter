@@ -1,3 +1,4 @@
+/* Mobile Styles */
 nav {
   height: 10vh;
   width: 100%;
@@ -9,16 +10,14 @@ nav {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  position: fixed; /* Set the navbar to fixed position */
-  top: 0; /* Position the navbar at the top of the page */
-  
+  position: fixed; 
+  top: 0; 
   z-index: 9999;
 }
 
 .logo {
   font-family: 'Bungee', sans-serif;
   font-size: 4vw;
-  /* margin: 0 0 0 4vw; */
 }
 
 nav div {
@@ -27,7 +26,6 @@ nav div {
 }
 
 nav p {
-  
   margin: 0;
   text-align: center;
 }
@@ -57,23 +55,4 @@ margin: 0;
     background-color: #4056A1;
     
   }
-
-/* 
-  .logo {
-    font-family: 'Bungee', sans-serif;
-    font-size: 1.5em;
-    margin: 0 0 0 4vw;
-  }
-
-  nav p {
-    font-size: 20px;
-    margin: 0 4vw 0 0;
-    text-align: center;
-  }
-
-  p.arrow {
-  color: #F13B19;
-  margin: 0 4vw 0 0;
-} */
-
 }

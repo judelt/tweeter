@@ -12,60 +12,30 @@ $(document).ready(function() {
     }
   };
 
-
   $("form").on("submit", function(event) {
     event.preventDefault();
   
     const form = $(this);
     const url = form.attr('action');
     const serializedData = form.serialize();
-    console.log(serializedData)
+    let text = $('#tweet-text').val();
 
-      //    console.log(valid)
-  let text = $('#tweet-text').val();
-
-  //  console.log(text)
-    if(!validateTweet(text)) {
+    // Validate tweet is valid
+    if (!validateTweet(text)) {
       return;
     }
   
-    console.log('submit!');
-        $.ajax({
-          method: "POST",
-          url: url,
-          data: serializedData // serializes the form's elements.
-        }).then(function() {
-          loadTweets();
-          $(".counter").val(140);
-          document.querySelector("form").reset();
-    
-        }).catch(function(err) {
-          console.log(err);
-        });
-
-    // $("form").validate({
-    //   rules: {
-    //     text: {
-    //       required: true,
-    //       minlength: 1,
-    //       maxlength: 140,
-    //     }
-    //   },
-    //   messages: {
-    //     text: {
-    //       required: `<i class="fas fa-exclamation-triangle"></i> Minimum lenght of 1 character <i class="fas fa-exclamation-triangle"></i>`,
-    //       minlength: `<i class="fas fa-exclamation-triangle"></i> Minimum lenght of 1 character <i class="fas fa-exclamation-triangle"></i>`,
-    //       maxlength: `<i class="fas fa-exclamation-triangle"></i> Maximum message length exceeded <i class="fas fa-exclamation-triangle"></i>`
-    //     }
-    //   },
-      // success : function() {
-        
-      // }
-    // });
-  
-  
-      
-    
+    $.ajax({
+      method: "POST",
+      url: url,
+      data: serializedData 
+    }).then(function() {
+      loadTweets();
+      $(".counter").val(140);
+      document.querySelector("form").reset();
+    }).catch(function(err) {
+      console.log(err);
+    });
   });
 
   const loadTweets = function() {
@@ -83,6 +53,7 @@ $(document).ready(function() {
 
 });
 
+//Preventing XSS
 const escape =  function(str) {
   let div = document.createElement('div');
   div.appendChild(document.createTextNode(str));
@@ -92,7 +63,7 @@ const escape =  function(str) {
 const createTweetElement = function(data) {
   const a = moment.unix(data.created_at / 1000);
   const b = moment();
-  const days = b.diff(a, "days"); // =1
+  const days = b.diff(a, "days");
   
 
   let $tweet = `

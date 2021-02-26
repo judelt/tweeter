@@ -1,5 +1,4 @@
-
-/* Mobile Styles */
+/* Mobile Styles & Tablet Styles */
 body > header {
   height: 35%;
   width: 100%;
@@ -26,12 +25,6 @@ body h2 {
 }
 .no-border {
   margin: 0em;
-}
-
-
-/* Tablet Styles */
-@media only screen and (min-width: 768px) {
-
 }
 
 /* Desktop styles */
