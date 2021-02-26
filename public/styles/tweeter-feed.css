@@ -21,9 +21,21 @@
   filter: blur(0.5px);
 }
 
+.icons {
+  opacity: 0;
+}
+
 .tweet:hover {
   box-shadow: 5px 10px #C5CBE3;
   filter: blur(0px);
+}
+
+.tweet:hover .account {
+  opacity: 1;
+}
+
+.tweet:hover .icons {
+  opacity: 1;
 }
 
 .tweet .user {
@@ -31,9 +43,7 @@
   align-items: center;
 }
 
-.tweet:hover .account {
-  opacity: 1;
-}
+
 
 .tweet header {
   display: flex;
@@ -47,7 +57,7 @@
   height: 5vh;
 }
 
-.tweet footer {
+.tweet body {
 border-bottom: 4px solid #545149;
 padding: 10px;
 }

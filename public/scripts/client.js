@@ -15,42 +15,57 @@ $(document).ready(function() {
 
   $("form").on("submit", function(event) {
     event.preventDefault();
-
+  
     const form = $(this);
     const url = form.attr('action');
     const serializedData = form.serialize();
+    console.log(serializedData)
 
-    $(this).validate({
-      rules: {
-        text: {
-          required: true,
-          minlength: 1,
-          maxlength: 140,
-        }
-      },
-      messages: {
-        text: {
-          required: `<i class="fas fa-exclamation-triangle"></i> Minimum lenght of 1 character <i class="fas fa-exclamation-triangle"></i>`,
-          minlength: `<i class="fas fa-exclamation-triangle"></i> Minimum lenght of 1 character <i class="fas fa-exclamation-triangle"></i>`,
-          maxlength: `<i class="fas fa-exclamation-triangle"></i> Maximum message length exceeded <i class="fas fa-exclamation-triangle"></i>`
-        }
-      },
-    });
+      //    console.log(valid)
+  let text = $('#tweet-text').val();
 
-    $.ajax({
-      method: "POST",
-      url: url,
-      data: serializedData // serializes the form's elements.
-    }).then(function() {
-      loadTweets();
-      $(".counter").val(140);
-
-    }).catch(function(err) {
-      console.log(err);
-    });
-
-    document.querySelector("form").reset();
+  //  console.log(text)
+    if(!validateTweet(text)) {
+      return;
+    }
   
+    console.log('submit!');
+        $.ajax({
+          method: "POST",
+          url: url,
+          data: serializedData // serializes the form's elements.
+        }).then(function() {
+          loadTweets();
+          $(".counter").val(140);
+          document.querySelector("form").reset();
+    
+        }).catch(function(err) {
+          console.log(err);
+        });
+
+    // $("form").validate({
+    //   rules: {
+    //     text: {
+    //       required: true,
+    //       minlength: 1,
+    //       maxlength: 140,
+    //     }
+    //   },
+    //   messages: {
+    //     text: {
+    //       required: `<i class="fas fa-exclamation-triangle"></i> Minimum lenght of 1 character <i class="fas fa-exclamation-triangle"></i>`,
+    //       minlength: `<i class="fas fa-exclamation-triangle"></i> Minimum lenght of 1 character <i class="fas fa-exclamation-triangle"></i>`,
+    //       maxlength: `<i class="fas fa-exclamation-triangle"></i> Maximum message length exceeded <i class="fas fa-exclamation-triangle"></i>`
+    //     }
+    //   },
+      // success : function() {
+        
+      // }
+    // });
+  
+  
+      
+    
   });
 
   const loadTweets = function() {
@@ -88,19 +103,20 @@ const createTweetElement = function(data) {
         <p><strong class="account">${escape(data.user.handle)}</strong></p>
       </header>
 
-      <footer>
+      <body>
         <p><strong>${escape(data.content.text)}</strong></p>
-      </footer>
-      <div class="log">
+      </body>
+
+      <footer class="log">
         <p>${escape(days)} days ago </p>
       
-        <div>
+        <div class="icons">
           <i class="fab fa-font-awesome-flag fa-xs"></i>
           <i class="fas fa-retweet fa-xs"></i>
           <i class="fas fa-heart fa-xs"></i>
       
         </div>
-      </div>
+      </footer>
     </article>
     `;
   return $tweet;
