@@ -1,7 +1,12 @@
 # Tweeter Project
 
 A simple single-page AJAX-based Twitter clone that uses jQuery, HTML5, and plain CSS3.
-Assignment for [Lighthouse Labs] (https://www.lighthouselabs.ca/)
+Assignment for [Lighthouse Labs](https://www.lighthouselabs.ca/)
+
+## Final Product
+
+!["Screenshot of the Desktop style](https://github.com/judelt/tweeter/blob/master/docs/Desktop%20style.png?raw=true)
+!["Screenshot of the Mobile & Tablet Style](https://github.com/judelt/tweeter/blob/master/docs/Mobile%20&%20Tablet%20Style.png?raw=true)
 
 ## Getting Started
 
