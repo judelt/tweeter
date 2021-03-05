@@ -30,11 +30,7 @@
   filter: blur(0px);
 }
 
-.tweet:hover .account {
-  opacity: 1;
-}
-
-.tweet:hover .icons {
+.tweet:hover .account, .tweet:hover .icons {
   opacity: 1;
 }
 
