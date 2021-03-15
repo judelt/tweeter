@@ -51,7 +51,7 @@
   height: 5vh;
 }
 
-.tweet body {
+.tweet > p {
 border-bottom: 4px solid #545149;
 padding: 10px;
 }

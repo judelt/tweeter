@@ -5,7 +5,7 @@ import { Navigation } from './components/Navigation'
 import { Profile } from './components/Profile'
 import { TweetForm } from './components/TweetForm'
 import { Tweet } from './components/Tweet'
-import { text } from 'body-parser';
+import { Tweets } from './components/Tweets';
 
 const initialTweetData = [
   {
@@ -28,16 +28,11 @@ const initialTweetData = [
 function App() {
   const [tweetData, setTweetData] = useState(initialTweetData)
 
-  const tweets = tweetData.map((tweetData, index) => {
-    return <Tweet key={index} name={tweetData.name} handle={tweetData.handle} profile_image={tweetData.profile_image} text={tweetData.text} date={tweetData.date} />
-
-  })
-
-  const addNewTweet = (text) => {
+  const addNewTweet = text => {
     const newTweet = {
       name: "Judit Mendez",
       handle: "@judelt",
-      profile_image: "http://i.imgur.com/2WZt0D6.png",
+      profile_image: "https://i.imgur.com/nlhLi3I.png",
       text,
       date: "5 days ago"
     }
@@ -51,7 +46,8 @@ function App() {
       <main className="container">
         <TweetForm addNewTweet={addNewTweet} />
         <section id="tweets-container">
-          {tweets}
+        <Tweets tweetData={tweetData} />
+          
         </section>
       </main>
     </div>
